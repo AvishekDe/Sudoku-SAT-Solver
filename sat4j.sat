@@ -1,0 +1,63 @@
+c SAT4J: a SATisfiability library for Java (c) 2004-2010 Daniel Le Berre
+c This is free software under the dual EPL/GNU LGPL licenses.
+c See www.sat4j.org for details.
+c version 2.3.1
+c java.runtime.name	Java(TM) SE Runtime Environment
+c java.vm.name		Java HotSpot(TM) 64-Bit Server VM
+c java.vm.version	18.0.1.1+2-6
+c java.vm.vendor	Oracle Corporation
+c sun.arch.data.model	64
+c java.version		18.0.1.1
+c os.name		Mac OS X
+c os.version		12.3.1
+c os.arch		aarch64
+c Free memory 		269246744
+c Max memory 		4294967296
+c Total memory 		272629760
+c Number of processors 	8
+c --- Begin Solver configuration ---
+c org.sat4j.minisat.constraints.MixedDataStructureDanielWL@6576fe71
+c Learn all clauses as in MiniSAT
+c claDecay=0.999 varDecay=0.95 conflictBoundIncFactor=1.1 initConflictBound=100 
+c VSIDS like heuristics from MiniSAT using a heap lightweight component caching from RSAT
+c Expensive reason simplification
+c Armin Biere (Picosat) restarts strategy
+c Glucose learned constraints deletion strategy
+c timeout=2147483647s
+c DB Simplification allowed=true
+c --- End Solver configuration ---
+c solving tmp.cnf
+c reading problem ... 
+c ... done. Wall clock time 0.014s.
+c declared #vars     999
+c #constraints  12013
+c constraints type 
+c org.sat4j.minisat.constraints.cnf.OriginalBinaryClause => 11664
+c org.sat4j.minisat.constraints.cnf.OriginalWLClause => 324
+c org.sat4j.minisat.constraints.cnf.UnitClause => 25
+c 12013 constraints processed.
+c starts		: 0
+c conflicts		: 0
+c decisions		: 0
+c propagations		: 1
+c inspects		: 16
+c shortcuts		: 0
+c learnt literals	: 0
+c learnt binary clauses	: 0
+c learnt ternary clauses	: 0
+c learnt constraints	: 0
+c ignored constraints	: 0
+c root simplifications	: 0
+c removed literals (reason simplification)	: 0
+c reason swapping (by a shorter reason)	: 0
+c Calls to reduceDB	: 0
+c speed (assignments/second)	: 6.048973132395272E-10
+c non guided choices	0
+c learnt constraints type 
+c constraints type 
+c org.sat4j.minisat.constraints.cnf.OriginalBinaryClause => 11664
+c org.sat4j.minisat.constraints.cnf.OriginalWLClause => 324
+c org.sat4j.minisat.constraints.cnf.UnitClause => 25
+c 12013 constraints processed.
+s UNSATISFIABLE
+c Total wall clock time (in seconds) : 0.015

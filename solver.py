@@ -1,6 +1,7 @@
 import itertools
 import os
 import sys
+import time
 
 puzzle = [
     "5***1***4",
@@ -14,6 +15,8 @@ puzzle = [
     "2***6***8"
 ]
 
+timings = {}
+
 clauses = []
 digits = range(1,10)
 
@@ -26,18 +29,23 @@ def exactly_one_of(literals):
 
     for pair in itertools.combinations(literals,2):
         clauses.append([-l for l in pair])
+def systemcall(solver, command):
+    start = time.time()
+    os.system(command)
+    end = time.time()
+    timings[solver] = end-start
 
 def invoke_solver(name):
     if(name == "minisat"):
-        os.system("minisat tmp.cnf minisat.sat > minisat_stats.out")
+        systemcall(name, "minisat tmp.cnf minisat.sat > minisat_stats.out")
     elif(name == "z3"):
-        os.system("z3 tmp.cnf > z3.sat")
+        systemcall(name, "z3 tmp.cnf > z3.sat")
     elif(name == "sat4j"):
-        os.system("java -jar org.sat4j.core-2.3.1.jar tmp.cnf > sat4j.sat")
+        systemcall(name, "java -jar org.sat4j.core-2.3.1.jar tmp.cnf > sat4j.sat")
     elif(name == "all"):
-        os.system("minisat tmp.cnf minisat.sat > minisat_stats.out")
-        os.system("z3 tmp.cnf > z3.sat")
-        os.system("java -jar org.sat4j.core-2.3.1.jar tmp.cnf > sat4j.sat")
+        systemcall("minisat", "minisat tmp.cnf minisat.sat > minisat_stats.out")
+        systemcall("z3", "z3 tmp.cnf > z3.sat")
+        systemcall("sat4j", "java -jar org.sat4j.core-2.3.1.jar tmp.cnf > sat4j.sat")
 
 def print_minisat():
     print("-------MINISAT Solver-------")
@@ -146,3 +154,4 @@ solver_name_input = sys.argv[1]
 
 invoke_solver(solver_name_input)
 print_results(solver_name_input)
+print(timings)

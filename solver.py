@@ -7,7 +7,7 @@ import time
 def load_puzzle(solution_filename, mode):
     solution = []
 
-    if mode == 'test':
+    if mode == 'solve':
         puzzle_filename = solution_filename
     else:
         solution_filepath = os.path.join('Solutions', solution_filename)
@@ -181,12 +181,12 @@ if __name__ == '__main__':
             c.append(0);
             f.write(" ".join(map(str,c))+"\n")
 
-    if mode == 'test':
+    if mode == 'solve':
         invoke_solver(solver_name_input)
         print_results(solver_name_input)
         print(timings)
     
-    elif mode == 'solve':
+    elif mode == 'hint':
         start = time.time()
         os.system("minisat tmp.cnf tmp.sat")
         end = time.time()

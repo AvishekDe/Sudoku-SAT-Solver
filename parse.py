@@ -6,7 +6,7 @@ sudoku = ""
 
 for line in lines:
     if line.startswith("Grid"):
-        currentfile = "./Puzzles/"+line.replace(" ","_")
+        currentfile = "./Puzzles/"+line.replace(" ","_").strip()
         count = 9
         sudoku = ""
     else:
